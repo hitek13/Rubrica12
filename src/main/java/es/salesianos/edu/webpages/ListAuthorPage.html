@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+	<div class="row">
+		<form wicket:id="formListAuthor" class="form-group">
+			<div>
+
+
+				<input wicket:id="nameAuthor" class="form-control"
+					placeholder="introduzca un nombre de un autor"></input> <input
+					type="submit" class="btn btn-primary">
+				<input type="submit" wicket:id="okbutton" value="OK" />
+    <input type="submit" wicket:id="cancelbutton" value="Cancel" />
+			</div>
+		</form>
+	</div>
+
+	<div class="row">
+		<div class="alert-info" wicket:id="feedbackMessage">[feedbackMessage]</div>
+	</div>
+
+
+	<div wicket:id="author-group">
+		<span wicket:id="authorName"></span> ||	<span wicket:id="dateOfBirth"></span>
+	</div>
+
+</body>
+</html>
