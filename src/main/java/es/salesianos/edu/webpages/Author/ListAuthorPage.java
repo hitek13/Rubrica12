@@ -1,4 +1,4 @@
-package es.salesianos.edu.webpages;
+package es.salesianos.edu.webpages.Author;
 
 import java.util.Collections;
 import java.util.Date;
@@ -113,7 +113,7 @@ public class ListAuthorPage extends WebPage {
 	private void addListAuthorView() {
 		Author author = new Author();// service.newEntity()
 		author.setNameAuthor(currentNameSearch);
-		listAuthor = service.searchAll(author);
+		listAuthor = service.searchAllAuthor(author);
 		ListView listview = new ListView("author-group", listAuthor) {
 			@Override
 			protected void populateItem(ListItem item) {

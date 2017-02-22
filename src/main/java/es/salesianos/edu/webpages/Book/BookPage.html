@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org">
+<head>
+</head>
+<body>
+	<h1>Hola, Spring-Boot está aquí!</h1><br>
+	<h4>No para joderte, pero tampoco para hacerte las cosas m&aacute;s c&oacute;modas</h4>
+	<h5>Sencillamente est&aacute;, tratemos de ignorarlo</h5>
+	<h6>Si se aburre igual se marcha...</h6>
+	<br>
+	<div class="container">
+		
+		<div class="row">
+			<form wicket:id="formInsertBook" class="form-group">
+				<div>
+
+
+					<span wicket:id="nameBookLabel" class="form-control">[nameBookLabel]</span>
+					<input wicket:id="nameBook" type="text" class="form-control"></input> 
+					
+					<span wicket:id="bookIsbnLabel" class="form-control">[bookIsbnLabel]</span>
+					<input wicket:id="bookIsbn" type="text" class="form-control"></input>
+					
+					<span wicket:id="bookAuthorLabel" class="form-control">[bookAuthor]</span>
+					<input wicket:id="bookAuthor" type="text" class="form-control"></input>
+					
+					<input type="submit" class="btn btn-primary">
+
+				</div>
+			</form>
+			
+			<div class="alert-info" wicket:id="feedbackMessage">[feedbackMessage]</div>
+			
+		</div>
+	</div>
+</body>
+</html>
