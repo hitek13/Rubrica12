@@ -42,8 +42,8 @@ public class BookPage extends WebPage {
 		form.add(new Label("bookIsbnLabel", getString("book.isbn")));
 		form.add(new Label("bookAuthorLabel", getString("book.author")));
 		form.add(new RequiredTextField("nameBook"));
-		form.add(new RequiredTextField("bookIsbn"));
-		form.add(new RequiredTextField("bookAuthor"));
+		form.add(new RequiredTextField("ISBN"));
+		form.add(new RequiredTextField("author"));
 		FeedbackPanel feedbackPanel = new FeedbackPanel("feedbackMessage");
 		feedbackPanel.setOutputMarkupId(true);
 		add(feedbackPanel);
