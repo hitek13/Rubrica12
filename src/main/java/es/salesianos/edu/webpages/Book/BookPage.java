@@ -6,6 +6,7 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.RequiredTextField;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -13,6 +14,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import es.salesianos.edu.model.Author;
 import es.salesianos.edu.model.Book;
 import es.salesianos.edu.service.SimulacroService;
+import es.salesianos.edu.webpages.HomePage;
 
 public class BookPage extends WebPage {
 
@@ -20,7 +22,9 @@ public class BookPage extends WebPage {
 	SimulacroService simulacroService;
 
 	public BookPage() {
-
+		BookmarkablePageLink bookmarkablePageIndex = new BookmarkablePageLink("linkIndex", HomePage.class);
+		
+		add(bookmarkablePageIndex);
 
 		Form form = new Form("formInsertBook", new CompoundPropertyModel(new Book())) {
 

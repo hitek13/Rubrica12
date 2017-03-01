@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
@@ -20,6 +21,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import es.salesianos.edu.model.Author;
 import es.salesianos.edu.service.SimulacroService;
+import es.salesianos.edu.webpages.HomePage;
 
 public class ListAuthorPage extends WebPage {
 
@@ -41,6 +43,9 @@ public class ListAuthorPage extends WebPage {
 	}
 
 	public ListAuthorPage() {
+		BookmarkablePageLink bookmarkablePageIndex = new BookmarkablePageLink("linkIndex", HomePage.class);
+		
+		add(bookmarkablePageIndex);
 		initComponents();
 	}
 
