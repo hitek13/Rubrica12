@@ -7,7 +7,7 @@ public class ConnectionH2Memory extends AbstractConnectionManager {
 
 	@Override
 	protected String getJdbcUrl() {
-		return "jdbc:h2:file:./date2;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
+		return "jdbc:h2:file:./datos;INIT=RUNSCRIPT FROM 'classpath:scripts/create.sql'";
 	}
 
 	@Override
