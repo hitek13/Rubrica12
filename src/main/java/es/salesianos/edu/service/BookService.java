@@ -14,7 +14,7 @@ public class BookService {
 	@Autowired
 	BookRepository repository;
 
-	public boolean insertNewAuthor(Book book) {
+	public boolean insertNewBook(Book book) {
 		repository.insertNewBook(book);
 		return true;
 	}

@@ -20,7 +20,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import es.salesianos.edu.model.Author;
-import es.salesianos.edu.service.SimulacroService;
+import es.salesianos.edu.service.AuthorService;
 import es.salesianos.edu.webpages.HomePage;
 
 public class ListAuthorPage extends WebPage {
@@ -28,7 +28,7 @@ public class ListAuthorPage extends WebPage {
 	private static final long serialVersionUID = -1935854748907274886L;
 
 	@SpringBean
-	SimulacroService service;
+	AuthorService authorService;
 
 	private static final Logger logger = LogManager.getLogger(ListAuthorPage.class.getName());
 
@@ -71,36 +71,14 @@ public class ListAuthorPage extends WebPage {
 			public void onSubmit() {
 				listAuthor.clear();
 				info("OK was pressed!");
-				Author author1 = new Author();
-				author1.setNameAuthor("uno");
-				author1.setDateOfBirth(new Date());
-				Author author2 = new Author();
-				author2.setNameAuthor("dos");
-				author2.setDateOfBirth(new Date());
-				Author author3 = new Author();
-				author3.setNameAuthor("tres");
-				author3.setDateOfBirth(new Date());
-				listAuthor.add(author1);
-				listAuthor.add(author2);
-				listAuthor.add(author3);
+				
 			}
 		};
 		Button cancelButton = new Button("cancelbutton") {
 			public void onSubmit() {
 				listAuthor.clear();
 				info("cancel was pressed!");
-				Author author1 = new Author();
-				author1.setNameAuthor("one");
-				author1.setDateOfBirth(new Date());
-				Author author2 = new Author();
-				author2.setNameAuthor("two");
-				author2.setDateOfBirth(new Date());
-				Author author3 = new Author();
-				author3.setNameAuthor("three");
-				author3.setDateOfBirth(new Date());
-				listAuthor.add(author1);
-				listAuthor.add(author2);
-				listAuthor.add(author3);
+				
 			}
 		};
 		form.add(okButton);
@@ -118,7 +96,7 @@ public class ListAuthorPage extends WebPage {
 	private void addListAuthorView() {
 		Author author = new Author();// service.newEntity()
 		author.setNameAuthor(currentNameSearch);
-		listAuthor = service.searchAllAuthor(author);
+		listAuthor = authorService.findAuthors(author);
 		ListView listview = new ListView("author-group", listAuthor) {
 			@Override
 			protected void populateItem(ListItem item) {

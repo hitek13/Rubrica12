@@ -12,14 +12,14 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import es.salesianos.edu.model.Author;
-import es.salesianos.edu.service.SimulacroService;
+import es.salesianos.edu.service.AuthorService;
 import es.salesianos.edu.webpages.HomePage;
 import es.salesianos.edu.webpages.Book.ListBookPage;
 
 public class AuthorPage extends WebPage {
 
 	@SpringBean
-	SimulacroService simulacroService;
+	AuthorService authorService;
 
 	public AuthorPage() {
 		
@@ -32,7 +32,7 @@ public class AuthorPage extends WebPage {
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				boolean isInserted = simulacroService.insertAuthor((Author) getModelObject());
+				boolean isInserted = authorService.insertNewAuthor((Author) getModelObject());
 				FeedbackMessage message;
 				if(isInserted){
 					message = new FeedbackMessage(this, "autor insertado", FeedbackMessage.INFO);

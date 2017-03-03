@@ -13,13 +13,13 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import es.salesianos.edu.model.Author;
 import es.salesianos.edu.model.Book;
-import es.salesianos.edu.service.SimulacroService;
+import es.salesianos.edu.service.BookService;
 import es.salesianos.edu.webpages.HomePage;
 
 public class BookPage extends WebPage {
 
 	@SpringBean
-	SimulacroService simulacroService;
+	BookService simulacroService;
 
 	public BookPage() {
 		BookmarkablePageLink bookmarkablePageIndex = new BookmarkablePageLink("linkIndex", HomePage.class);
@@ -31,7 +31,7 @@ public class BookPage extends WebPage {
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				boolean isInserted = simulacroService.insertBook((Book) getModelObject());
+				boolean isInserted = simulacroService.insertNewBook((Book) getModelObject());
 				FeedbackMessage message;
 				if(isInserted){
 					message = new FeedbackMessage(this, "Libro insertado", FeedbackMessage.INFO);

@@ -20,7 +20,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import es.salesianos.edu.model.*;
-import es.salesianos.edu.service.SimulacroService;
+import es.salesianos.edu.service.BookService;
 import es.salesianos.edu.webpages.HomePage;
 
 public class ListBookPage extends WebPage {
@@ -28,7 +28,7 @@ public class ListBookPage extends WebPage {
 	private static final long serialVersionUID = -1935854748907274886L;
 
 	@SpringBean
-	SimulacroService service;
+	BookService service;
 
 	private static final Logger logger = LogManager.getLogger(ListBookPage.class.getName());
 
@@ -124,7 +124,7 @@ public class ListBookPage extends WebPage {
 	private void addlistBookView() {
 		Book book = new Book();// service.newEntity()
 		book.setNameBook(currentNameSearch);
-		listBook = service.searchAllBook(book);
+		listBook = service.findBook(book);
 		ListView listview = new ListView("book-group", listBook) {
 			@Override
 			protected void populateItem(ListItem item) {
